@@ -17,6 +17,11 @@
       "@shared/*": [
         "src/shared/*"
       ],
+
+      "@store/*": [
+        "src/renderer/src/store/*"
+      ]
+
       
     }
   }

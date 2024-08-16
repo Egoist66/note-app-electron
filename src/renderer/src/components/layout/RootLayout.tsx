@@ -4,6 +4,7 @@ type AsideProps = ComponentProps<'aside'>
 type MainProps = ComponentProps<'main'>
 type FooterProps = ComponentProps<'footer'>
 
+
 type LayoutProps  = {
     layoutCss?: string,
     aside?: AsideProps,
@@ -17,13 +18,14 @@ type LayoutProps  = {
     
 }
 
+
 /**
- * A reusable layout component that renders a root layout with customizable aside, main, and footer sections.
+ * Renders a root layout with customizable aside, main, and footer sections.
  *
  * @param {LayoutProps} props - The layout properties, including aside, main, footer, and slots.
  * @return {JSX.Element} The rendered root layout element.
- */
-
+ 
+*/
 export function RootLayout({aside, layoutCss, main, footer, slots }: LayoutProps): JSX.Element {
 
 

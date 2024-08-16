@@ -19,7 +19,7 @@
 }
 
 .app-dark-layout {
-    @apply bg-gradient-to-tr from-slate-800 to-slate-900 text-white;
+    @apply bg-[#111] text-white;
     @apply h-full;
     @apply flex;
     @apply justify-center;
@@ -27,9 +27,24 @@
 
 }
 
+.dark-main {
+    @apply bg-zinc-900;
+}
+
+.light-main {
+    @apply bg-zinc-300;
+}
 .app-light-layout {
     @apply bg-white text-black;
     @apply h-full;
     @apply flex;
     @apply items-center;
+}
+
+header {
+    -webkit-app-region: drag;
+}
+
+button {
+    -webkit-app-region: no-drag;
 }

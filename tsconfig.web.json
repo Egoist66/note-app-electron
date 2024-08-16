@@ -24,6 +24,9 @@
       ],
       "@/*": [
         "src/renderer/src/*"
+      ],
+      "@store/*": [
+        "src/renderer/src/store/*"
       ]
     }
   }
