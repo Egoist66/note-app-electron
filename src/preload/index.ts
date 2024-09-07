@@ -6,7 +6,7 @@ if(!process.contextIsolated){
 
 try {
   contextBridge.exposeInMainWorld('context', {
-    // TODO: add ipcRenderer here
+    locale: navigator.language
     
   })
 } 

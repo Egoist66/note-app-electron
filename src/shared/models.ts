@@ -1,5 +1,5 @@
 export type NoteInfo = {
-    id: number | string;
+    id: string;
     title: string;
     lastEditTime: number;
 

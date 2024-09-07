@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 /**
  * A custom React hook to manage the application theme.
@@ -11,6 +11,15 @@ export const useTheme = (mode?: 'light' | 'dark'): [string, () => void] => {
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light')
     }
+
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+
+        return () => {
+
+        }
+    }, [theme])
 
     
     return [theme, toggleTheme]
