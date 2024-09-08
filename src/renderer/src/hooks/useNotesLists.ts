@@ -2,7 +2,7 @@ import { notesAtom, selectedNoteAtom, selectedNoteIdAtom } from "@renderer/store
 import { useAtom, useAtomValue } from "jotai";
 
 export const useNotesList = (onSelect?: () => void) => {
-  const notes = useAtomValue(notesAtom)
+  const [notes, setNotes] = useAtom(notesAtom)
   const [selectedNoteId, setSelectedNoteId] = useAtom(selectedNoteIdAtom)
   const selectedNote = useAtomValue(selectedNoteAtom)
   
@@ -16,10 +16,20 @@ export const useNotesList = (onSelect?: () => void) => {
     }
   }
 
+  const handleDeleteNote = (id: string) => {
+    setNotes((prev) => prev.filter((note) => note.id !== id))
+
+    if(selectedNoteId === id){
+      setSelectedNoteId(null)
+    }
+    
+  }
+
   return {
     notes,
     selectedNoteId,
     selectedNote,
-    handleNoteSelect
+    handleNoteSelect,
+    handleDeleteNote
   }
 };

@@ -14,7 +14,7 @@ export function Content({ main }: { main: ContentProps }): JSX.Element {
   return (
     <main id="main-content" {...main}>
       
-      <FloatingNoteTitle className="mb-5">{selectedNote?.title}</FloatingNoteTitle>
+      <FloatingNoteTitle className="mb-5">{selectedNote?.title ?? ''}</FloatingNoteTitle>
       <MarkDownEditor note={selectedNote as NoteInfo} />
 
 

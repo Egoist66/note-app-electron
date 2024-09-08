@@ -39,3 +39,17 @@ export const formatDateFromTimestamp = (timestamp: number) => {
     return dateOptions.format(timestamp)
     
 }
+
+/**
+ * Retrieves the first element that matches the specified CSS selector from the document.
+ *
+ * @param {string} ref - The CSS selector to match against.
+ * @return {Element | null} The first matching element, or null if no match is found.
+ */
+export const domRef = (ref: string) => {
+    if(document.querySelector(ref)){
+        return document.querySelector(ref)
+    }
+
+    return null
+}

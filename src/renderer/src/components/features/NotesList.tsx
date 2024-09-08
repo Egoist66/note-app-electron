@@ -1,4 +1,4 @@
-import { mapToElements } from "@renderer/utils";
+import { domRef, mapToElements } from "@renderer/utils";
 import { FC } from "react";
 import { DeleteNoteButton, FlexRow, NewNoteButton } from "..";
 import { NoteListItem } from "./NoteListItem";
@@ -8,8 +8,11 @@ const NotesList: FC = (): JSX.Element => {
   const {
    notes,
     handleNoteSelect,
+    handleDeleteNote,
     selectedNoteId,
-  } = useNotesList();
+  } = useNotesList(() => {
+    domRef("main")?.scrollTo(0, 0)
+  });
 
   const noteList = mapToElements(notes, (note) => (
     <NoteListItem
@@ -20,13 +23,17 @@ const NotesList: FC = (): JSX.Element => {
     />
   ));
 
+  
+
   return (
     <>
       <FlexRow className="gap-2 justify-between items-center">
         <NewNoteButton props={{ onClick: () => alert("New Note") }} />
         <DeleteNoteButton
           props={{
+            disabled: !selectedNoteId,
             className: "bg-red-500 hover:bg-red-600",
+            onClick: () => handleDeleteNote(selectedNoteId!),
           }}
         />
       </FlexRow>

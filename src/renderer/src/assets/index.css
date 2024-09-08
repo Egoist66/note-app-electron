@@ -32,7 +32,7 @@
 }
 
 .light-main {
-    @apply bg-zinc-500;
+    @apply bg-zinc-800;
 }
 .app-light-layout {
     @apply bg-white text-black;
@@ -59,4 +59,20 @@ button {
 
 ::-webkit-scrollbar-track {
     @apply bg-transparent;
+}
+
+aside {
+    transition: 0.3s all ease;
+}
+.isToggledSidebar {
+    width: 0 !important;
+    overflow: hidden;
+    padding: 0 !important;
+    transition: 0.3s all ease;
+
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
