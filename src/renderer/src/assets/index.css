@@ -32,7 +32,7 @@
 }
 
 .light-main {
-    @apply bg-zinc-300;
+    @apply bg-zinc-500;
 }
 .app-light-layout {
     @apply bg-white text-black;
@@ -47,4 +47,16 @@ header {
 
 button {
     -webkit-app-region: no-drag;
+}
+
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-[#555] rounded-md;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
 }

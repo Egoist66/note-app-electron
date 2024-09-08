@@ -5,7 +5,11 @@ import { ActionButton } from "./ui/Button/ActionButton";
 import { NewNoteButton } from "./ui/Button/NewNoteButton";
 import { FlexRow } from './ui/FlexRow/FlexRow';
 import { DeleteNoteButton } from './ui/Button/DeleteNoteButton';
-import { NotesList } from './features/NotesList';
+import { lazy } from "react";
+import { MarkDownEditor } from './features/MardownEditor';
+import { FloatingNoteTitle } from './features/FloatingNoteTitle';
+
+const NotesList = lazy(() => import("./features/NotesList"));
 
 export * from "./layout/RootLayout";
 export { 
@@ -15,6 +19,8 @@ export {
     ActionButton, 
     NewNoteButton,
     DeleteNoteButton,
+    MarkDownEditor,
     NotesList,
+    FloatingNoteTitle,
     FlexRow 
 };

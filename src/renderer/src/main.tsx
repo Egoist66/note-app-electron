@@ -1,3 +1,5 @@
+import '@mdxeditor/editor/style.css'
+
 import './assets/index.css'
 
 import ReactDOM from 'react-dom/client'

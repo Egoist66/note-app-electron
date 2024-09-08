@@ -6,7 +6,8 @@ import { useEffect, useState } from "react"
  * @return {[string, function]} A "tuple" (array) containing the current theme and a function to toggle the theme.
 */
 
-export const useTheme = (mode?: 'light' | 'dark'): [string, () => void] => {
+type ThemeMode = 'light' | 'dark' | string
+export const useTheme = (mode?: ThemeMode): [string, () => void] => {
     const [theme, setTheme] = useState(mode || 'dark')
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light')
