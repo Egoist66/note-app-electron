@@ -1,7 +1,7 @@
 export type NoteInfo = {
     id: string;
     title: string;
-    content: string;
+    content?: string;
     lastEditTime: number;
 
 }

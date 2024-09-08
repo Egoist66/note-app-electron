@@ -47,7 +47,7 @@ function App(): JSX.Element {
                 props={{
                   title: "change theme",
                   onClick: setTheme,
-                  className: "absolute z-20 bottom-2 left-2 shadow-md",
+                  className: "absolute z-20 bottom-2 right-2 shadow-md",
                 }}
               >
                 {theme === "dark" ? (
@@ -60,7 +60,7 @@ function App(): JSX.Element {
                 props={{
                   title: "toggle sidebar",
                   onClick: toggle,
-                  className: "absolute z-20 bottom-2 left-14 shadow-md",
+                  className: "absolute z-20 bottom-2 right-14 shadow-md",
                 }}
               >
                 {isToggled ? (

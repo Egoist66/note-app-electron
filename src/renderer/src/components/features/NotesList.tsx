@@ -9,10 +9,12 @@ const NotesList: FC = (): JSX.Element => {
    notes,
     handleNoteSelect,
     handleDeleteNote,
+    handleCreateNote,
     selectedNoteId,
   } = useNotesList(() => {
     domRef("main")?.scrollTo(0, 0)
   });
+
 
   const noteList = mapToElements(notes, (note) => (
     <NoteListItem
@@ -28,7 +30,7 @@ const NotesList: FC = (): JSX.Element => {
   return (
     <>
       <FlexRow className="gap-2 justify-between items-center">
-        <NewNoteButton props={{ onClick: () => alert("New Note") }} />
+        <NewNoteButton props={{ onClick: () => handleCreateNote() }} />
         <DeleteNoteButton
           props={{
             disabled: !selectedNoteId,

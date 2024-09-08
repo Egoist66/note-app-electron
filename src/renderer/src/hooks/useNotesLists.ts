@@ -1,11 +1,13 @@
-import { notesAtom, selectedNoteAtom, selectedNoteIdAtom } from "@renderer/store";
-import { useAtom, useAtomValue } from "jotai";
+import { createEmptyNoteAtom, deleteNoteAtom, notesAtom, selectedNoteAtom, selectedNoteIdAtom } from "@renderer/store";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 
 export const useNotesList = (onSelect?: () => void) => {
-  const [notes, setNotes] = useAtom(notesAtom)
+  const [notes] = useAtom(notesAtom)
   const [selectedNoteId, setSelectedNoteId] = useAtom(selectedNoteIdAtom)
+  const setDeleteNote = useSetAtom(deleteNoteAtom)
   const selectedNote = useAtomValue(selectedNoteAtom)
-  
+  const createNote = useSetAtom(createEmptyNoteAtom); 
+
 
 
   const handleNoteSelect = async (id: string) => {
@@ -17,19 +19,22 @@ export const useNotesList = (onSelect?: () => void) => {
   }
 
   const handleDeleteNote = (id: string) => {
-    setNotes((prev) => prev.filter((note) => note.id !== id))
-
-    if(selectedNoteId === id){
-      setSelectedNoteId(null)
-    }
+    setDeleteNote(id)
+    
     
   }
+
+  const handleCreateNote = () => {
+    createNote()
+  }
+
 
   return {
     notes,
     selectedNoteId,
     selectedNote,
     handleNoteSelect,
+    handleCreateNote,
     handleDeleteNote
   }
 };
