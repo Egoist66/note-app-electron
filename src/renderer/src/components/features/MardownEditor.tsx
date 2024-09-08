@@ -16,17 +16,23 @@ import {
   UndoRedo,
 } from "@mdxeditor/editor";
 import { NoteInfo } from "@shared/models";
-import { FC, useEffect, useRef } from "react";
+import { FC, memo, useEffect, useRef } from "react";
 
-export const MarkDownEditor: FC<{note?: NoteInfo}> = ({note}) => {
+export const MarkDownEditor: FC<{note?: NoteInfo}> = memo(({note}) => {
   const mdxEditorRef = useRef<MDXEditorMethods>(null)
   
   useEffect(() => {
     if(mdxEditorRef.current){
-      mdxEditorRef.current.setMarkdown(`# ${note?.content}` || "")
+      mdxEditorRef.current.setMarkdown(`# ${note?.content}` || "dd")
     }
   }, [note])
+
+
+  if(!note) return null
+
+
   return (
+    
     <>
 
       <MDXEditor
@@ -64,4 +70,4 @@ export const MarkDownEditor: FC<{note?: NoteInfo}> = ({note}) => {
       />
     </>
   );
-};
+});
