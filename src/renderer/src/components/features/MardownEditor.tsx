@@ -14,17 +14,23 @@ import {
   toolbarPlugin,
   UndoRedo,
 } from "@mdxeditor/editor";
+import { useMarkDownEditor } from "@renderer/hooks/useMarkDownEditor";
 import { NoteInfo } from "@shared/models";
 import { FC, memo } from "react";
 
 export const MarkDownEditor: FC<{ note?: NoteInfo }> = memo(({ note }) => {
+
+  const {handleAutoSave ,editorRef, handleSaveBlur} = useMarkDownEditor()
   
   if (!note) return null;
 
   return (
     <>
       <MDXEditor
+        ref={editorRef}
         key={note.id}
+        onChange={handleAutoSave}
+        onBlur={handleSaveBlur}
         contentEditableClassName="outline-none 
         min-h-screen max-w-none text-large 
         caret-yellow-500 prose prose-invert
@@ -33,7 +39,7 @@ export const MarkDownEditor: FC<{ note?: NoteInfo }> = memo(({ note }) => {
         prose-ul:my-2 prose-li:my-0 prose-code:px-1
         prose-code:text-red-500 prose-code:before:content-['']
         prose-code:after:content-['']"
-        markdown={`## ${note.content}` || ""}
+        markdown={`${note.content}` || ""}
         plugins={[
           headingsPlugin(),
           linkPlugin(),

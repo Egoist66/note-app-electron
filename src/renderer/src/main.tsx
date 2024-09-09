@@ -1,4 +1,5 @@
 import '@mdxeditor/editor/style.css'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 import './assets/index.css'
 

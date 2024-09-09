@@ -10,6 +10,8 @@ import { useTheme } from "./hooks/useTheme";
 import { cn } from "./utils";
 import { FaSun, FaMoon, FaToggleOn, FaToggleOff } from "react-icons/fa6";
 import { useToggler } from "./hooks/useToggler";
+import { ToastContainer } from 'react-toastify';
+
 
 function App(): JSX.Element {
   const [theme, setTheme] = useTheme(localStorage.getItem("theme") || "dark");
@@ -17,11 +19,23 @@ function App(): JSX.Element {
     theme === "dark" ? "app-dark-layout" : "app-light-layout",
   );
 
-  const { isToggled, toggle } = useToggler(false);
+  const { isToggled, toggle } = useToggler(
+    {
+      mode: false, 
+      options: {
+        toggleByKey: true, 
+        keyShortcut: "Shift",
+        CtrlKeyEnabled: true, 
+        callback: (toggleSidebar) => toggleSidebar()
+      }
+    }
+  );
 
   return (
     <>
       <DraggableTopBar />
+
+      <ToastContainer />
 
       <RootLayout
         layoutCss={cssClasses}
